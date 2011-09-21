@@ -1,1 +1,1 @@
-Ramaze app to monitor Gearman queues.  Need to 'gem install ramaze' to get this going.
+Ramaze app to monitor Gearman queues.  Need to 'gem install ramaze' and edit conf/gearman.yml to get this going.
