@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Gamestream Gearman Dashboard</title>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <link rel="Stylesheet" href="/stats.css" type="text/css" media="screen" />
+</head>
+<body class="help">
+<div class="container">
+<h1>Gearman Dashboard</h1>
+  <% for data in @found %>
+    <div class="statgroup top"><a name="topfaq"></a>
+      <h3><font color="#CC3333"><%= data[0] %></font></h3>
+      <ul>
+        <% if data[1].to_i > 500 %>
+        <li>Jobs queued: <strong>&nbsp;<b><%= data[1] %>&nbsp;</strong></b> </li>
+          <% else %>
+        <li>Jobs queued: <b><%= data[1] %></b> </li>
+        <% end %>
+        <li>Workers running: <b><%= data[2] %> </b></li>
+        <% if data[3].to_i == 0 %>
+          <li>Workers available: <strong><font color="#000">&nbsp;No workers&nbsp;</font></strong></li>
+          <% else %>
+        <% if data[3].to_i == data[2].to_i %>
+        <li>Workers available: <b><%= data[3] %></b>&nbsp;<strong>&nbsp;<font color="#000"> Maxed </font>&nbsp;</strong></li>
+        <% else %>
+            <li>Workers available: <b><%= data[3] %> </b></li>
+          <% end %>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

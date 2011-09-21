@@ -1,0 +1,8 @@
+gearman:
+  
+  server: 10.10.10.1:4730
+  
+  workers:
+  - dev_Worker
+  - stage_worker
+  - prod_Worker
